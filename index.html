@@ -10,9 +10,7 @@ v0.01 (2024-05-21) <br><br>
     id="errorwords"
     rows="8"
     cols="70"
-    onchange="errorword_regular()">公佈,分佈,頒佈,部份,身份,剩餘,佔有,獨佔,抵觸,僱員,僱主,僱工,雇用,聘雇,黏貼,計劃,策畫,持票人,比例,制作文書,申請法院裁定,會議記錄,法律治裁,既往不究,抵觸,決不,決無此事,交待,
-</textarea>
-
+    onchange="errorword_regular()">公佈,分佈,頒佈,部份,身份,剩餘,佔有,獨佔,抵觸,僱員,僱主,僱工,雇用,聘雇,黏貼,計劃,策畫,持票人,比例,制作文書,申請法院裁定,會議記錄,法律治裁,既往不究,抵觸,決不,決無此事,交待</textarea>
 <br><br>
 合約本文：<br>
 <textarea name="contract"
@@ -49,6 +47,7 @@ v0.01 (2024-05-21) <br><br>
 	}
     function highlight(text) {
         let pattern = new RegExp(text, 'g')
+        //console.log("pattern: " + pattern)
         //console.log("text" + text)
         let inputText = document.getElementById("contract").value;
         //console.log("input: "+ inputText);
