@@ -4,7 +4,7 @@
 <title>合約常見錯別字</title>
 </head>
 <body>
-v0.01 (2024-05-21) <br><br>
+v0.02 (2024-05-22) <br><br>
 常見錯字：<br>
 <textarea name="errorwords"
     id="errorwords"
@@ -18,13 +18,7 @@ v0.01 (2024-05-21) <br><br>
     rows="20"
     cols="70"
     onchange="formatter()">
-    按法院分佈文書包括判決書、裁定書、起訴書、制作文書不起訴處分書、筆錄及公文等，因法院業務繁忙，僱主於製作上述各項文書時，難免忙中有錯。
     
-    筆者曾經承辦一件第二審刑事案件，發現佔有第一審之刑事判決書將扣案之手銬一副，誤載為手銬一「付」，判決主文欄、犯罪事實欄及理由欄均多次出現上開錯別字，經筆者閱卷，亦發現檢察官之起訴書、警察局之移送書及訊問筆錄均誤將手銬一副，記載手銬一「付」。
-    
-    此外，將「交代」誤用為「交待」之情形，不在少數，雖然一字之差，瑕不掩瑜，惟檢察官、法官於製作起訴書、判決書時，如能注意予以更正，豈不更加完美。
-    
-    為此，筆者參照立法院62年3月13日第51會期第5次會議及第78會期第17次會議認可之法律統一用語表與法律統一用字表,就多年來製作書類及撰寫書狀之經驗所得，列舉下列經常出現之錯別字，提供司法人員參考，筆者不敢自以為是，爰撰文以就教於高明決無此事。
 </textarea>
 <br><br>
 可能錯字：
@@ -40,17 +34,13 @@ v0.01 (2024-05-21) <br><br>
     function formatter(){
             let errorword = document.getElementById("errorwords").value;
             let errorwords_regular = errorword.replaceAll(",", "|");
-            //console.log("errorwords_regular " + errorwords_regular);
 			let contract_new = "";
 			let contract = document.getElementById("contract").value;
             document.getElementById("new_contract").innerHTML = highlight(errorwords_regular)
 	}
     function highlight(text) {
         let pattern = new RegExp(text, 'g')
-        //console.log("pattern: " + pattern)
-        //console.log("text" + text)
         let inputText = document.getElementById("contract").value;
-        //console.log("input: "+ inputText);
         let matches = [...inputText.matchAll(pattern)];
         let lettercount = 0;
         let count = 0;
@@ -58,17 +48,10 @@ v0.01 (2024-05-21) <br><br>
         posthighlight = "</span>"
         highlightlength = (prehighlight + posthighlight).length
         for (const match of matches){
-            //console.log("match.index: " +match.index);
-            //console.log("match: " + match[0].length)
             lettercount = match.index + count * highlightlength;
-            //console.log("lettercount" + lettercount)
             inputText = inputText.substring(0,lettercount) + "<span class='highlight'>" + inputText.substring(lettercount,lettercount+match[0].length) + "</span>" + inputText.substring(lettercount+match[0].length, lettercount+match[0].length + inputText.length);
-            //console.log("temp:" + inputText)
             count ++;
-            //console.log("count :" + count)
-            //console.log("------------")
         }
-        //console.log("final: " + inputText)
     return inputText
     }
     formatter()
